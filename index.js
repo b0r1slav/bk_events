@@ -26,6 +26,7 @@
                         calendar = new FullCalendar.Calendar(calendarEl, {
                             initialView: 'listDay',
                             locale: "bg-BG",
+                            height: "auto",
                             headerToolbar: {
                                 left: 'prev,next',
                                 center: 'title',
