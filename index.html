@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/select2.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="node_modules/fullcalendar/index.global.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <select class="w-100" id="twin-filter">
+                    <option></option>
+                    <option value="Борис">Борис</option>
+                    <option value="калоян">Калоян</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select class="w-100" id="type-filter" multiple>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/select2.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
