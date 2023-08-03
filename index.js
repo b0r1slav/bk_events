@@ -10,6 +10,14 @@
             });
         }
 
+        function appendElToEvent(parent, $el) {
+            if ($(parent).find('.fc-list-event-title').length) {
+                $(parent).find('.fc-list-event-title').append($el);
+            } else {
+                $(parent).append($el);
+            }
+        }
+
         function loadEvents() {
             var requestOptions = {
                 method: 'GET',
@@ -52,15 +60,25 @@
                                 }
 
                                 if (info.event.extendedProps.nutrient) {
-                                    const $span = $('<span></span>').addClass('badge')
+                                    const $badge = $('<span></span>').addClass('badge ms-2')
                                         .text(info.event.extendedProps.nutrient)
                                         .css('backgroundColor', info.event.extendedProps.nutrientColor);
                                     
-                                    if ($(info.el).find('.fc-list-event-title').length) {
-                                        $(info.el).find('.fc-list-event-title').append($span);
-                                    } else {
-                                        $(info.el).append($span);
-                                    }
+                                    appendElToEvent(info.el, $badge);
+                                }
+
+                                if (info.event.extendedProps.quantity) {
+                                    const $quantity = $('<span></span>').addClass('ms-2 fw-bold')
+                                        .text(info.event.extendedProps.quantity);
+                                    
+                                    appendElToEvent(info.el, $quantity);
+                                }
+
+                                if (info.event.extendedProps.comment) {
+                                    const $comment = $('<span></span>').addClass('ms-2 fst-italic')
+                                        .text(info.event.extendedProps.comment);
+
+                                    appendElToEvent(info.el, $comment);
                                 }
 
                                 const twinName = info.event.extendedProps.twinName.toLowerCase();
