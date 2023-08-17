@@ -90,8 +90,10 @@
                                 const typeFilterValues = typeFilter.map(el => el.toLowerCase());
                                 const type = info.event.extendedProps.type.toLowerCase();
 
-                                if (typeFilterValues.length && !typeFilterValues.includes(type)) {
-                                    info.el.style.display = 'none';
+                                if (typeFilterValues.length) {
+                                    if (!typeFilterValues.includes(type) && !(typeFilterValues.includes("нутриенти") && info.event.extendedProps.nutrient)) {
+                                        info.el.style.display = 'none';
+                                    }
                                 }
                             }
                         });
