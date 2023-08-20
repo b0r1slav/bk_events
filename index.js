@@ -105,10 +105,10 @@
 
         loadEvents();
 
-        $typeFilter.select2({
-            placeholder: "Филтрирай по тип на събитие",
-            allowClear: true
-        });
+        // $typeFilter.select2({
+        //     placeholder: "Филтрирай по тип на събитие",
+        //     allowClear: true
+        // });
 
         $twinFilter.add($typeFilter).on('change', function () {
             calendar.refetchEvents();
