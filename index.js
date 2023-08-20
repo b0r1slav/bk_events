@@ -105,11 +105,6 @@
 
         loadEvents();
 
-        $twinFilter.select2({
-            placeholder: "Филтрирай по хитрец",
-            allowClear: true
-        });
-
         $typeFilter.select2({
             placeholder: "Филтрирай по тип на събитие",
             allowClear: true
