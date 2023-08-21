@@ -105,13 +105,24 @@
 
         loadEvents();
 
-        // $typeFilter.select2({
-        //     placeholder: "Филтрирай по тип на събитие",
-        //     allowClear: true
-        // });
-
-        $twinFilter.add($typeFilter).on('change', function () {
+        $twinFilter.add($typeFilter).on('change', function (e) {
             calendar.refetchEvents();
+
+            if (e.currentTarget.id === "type-filter") {
+                $('#type-filter-selected').empty();
+                ($(e.currentTarget).val() || []).forEach((v) => {
+                    $('<button type="button" class="btn btn-outline-dark btn-sm me-1 tf-selection"></button>').text(v).val(v).appendTo('#type-filter-selected');
+                });
+            }
+        });
+
+        $('#type-filter-selected').on('click', '.tf-selection', function (e) {
+            const $tf = $('#type-filter');
+            const val = $tf.val();
+            const clicked = e.currentTarget.value;
+            const fVal = (val || []).filter(v => v !== clicked);
+            
+            $tf.val(fVal).trigger('change');
         });
     });
 })();
