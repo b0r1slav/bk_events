@@ -27,6 +27,9 @@
             fetch("https://script.google.com/macros/s/AKfycbxNnO6euZTMq_q8EM4k0bvYsO2QTCDZ3yGevR0eSkWCmoTrfsbdEQlPViNxIDH9GY-Ctw/exec", requestOptions)
                 .then(response => response.json())
                 .then((result) => {
+                    $('.container-fluid').css('display', 'block');
+                    $('#loader').remove();
+                    
                     if (result?.success) {
                         populateTypeFilter(result.types);
 
