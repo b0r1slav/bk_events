@@ -82,7 +82,7 @@
 
                                 if (info.event.extendedProps.comment) {
                                     const $comment = $('<span></span>').addClass('ms-2 fst-italic')
-                                        .text(info.event.extendedProps.comment);
+                                        .html(info.event.extendedProps.comment);
 
                                     appendElToEvent(info.el, $comment);
                                 }
